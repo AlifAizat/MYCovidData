@@ -2,3 +2,4 @@ django
 gunicorn
 django-heroku
 
+setuptools>=0.7
