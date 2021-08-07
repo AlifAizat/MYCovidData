@@ -35,12 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mainpage',
+    'vaccinationstats',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +51,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
 ]
 
 ROOT_URLCONF = 'mycovidwebsite.urls'
@@ -75,10 +84,16 @@ WSGI_APPLICATION = 'mycovidwebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
         # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': 'mycovid',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'deod2o4inslt3f',
+        'USER': 'yzxgeqozxdcgcm',
+        'PASSWORD': '72225c5a4df647ce123e4661ed1aaa1bc622e49755c80223f3e72e955fc79b97',
+        'HOST': 'ec2-3-237-55-151.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
